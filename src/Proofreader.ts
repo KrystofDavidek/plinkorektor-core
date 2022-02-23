@@ -1,6 +1,6 @@
 import * as md5 from "md5";
-import { message as msg } from "./utilities/Message";
-import { MessageImportance as MI } from "./types/MessageImportance";
+// import { message as msg } from "./utilities/Message";
+// import { MessageImportance as MI } from "./types/MessageImportance";
 
 import { MistakeManager } from "./correction/MistakeManager";
 import { Config } from "./types/Config";
@@ -19,9 +19,9 @@ export class Proofreader {
   }
 
   initialize(gui: ProofreaderGui) {
-    msg("Initialization.");
+    // msg("Initialization.");
     this.config.gui = gui;
-    msg("Proofreader was initialized.", MI.INFO);
+    // msg("Proofreader was initialized.", MI.INFO);
     // Autocorrect periodically triggered
     this.autocorrectTrigger = setInterval(() => {
       this.process();
@@ -39,12 +39,12 @@ export class Proofreader {
     // Looping through paragraphs
     this.config.gui.getChunks().forEach((chunk) => {
       if (chunk.isProcessing()) {
-        msg("Already processing. Processing skipped.");
+        // msg("Already processing. Processing skipped.");
         return;
       }
       // Skipping empty paragraphs
       if (chunk.isEmpty()) {
-        msg("Empty paragraph. Processing skipped.");
+        // msg("Empty paragraph. Processing skipped.");
         chunk.setProcessing(false);
         chunk.setChanged(false);
         chunk.setFailed(false);
@@ -62,14 +62,14 @@ export class Proofreader {
         chunk.setFailed(false);
         chunk.setLastHash(hash);
         chunk.setChanged(true);
-        msg('Paragraph with changed hash "' + hash + '" si still changing. Processing skipped.');
+        // msg('Paragraph with changed hash "' + hash + '" si still changing. Processing skipped.');
         return;
       }
 
       // Skipping unchanged paragraph
       if (chunk.getLastHash() === hash && !chunk.isChanged()) {
         chunk.setChanged(false);
-        msg('Paragraph with unchanged hash "' + hash + " wasn't changed last time\". Processing skipped.");
+        // msg('Paragraph with unchanged hash "' + hash + " wasn't changed last time\". Processing skipped.");
         return;
       }
       chunk.setFailed(false);

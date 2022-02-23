@@ -6,10 +6,3 @@ export { Mistake } from "./correction/Mistake";
 export { message } from "./utilities/Message";
 export { parseEl } from "./process/HtmlParser";
 export { ParsedHtml } from "./process/ParsedHtml";
-export {
-  cssMainStylesheet,
-  cssMistakeBadValue,
-  cssMistakeDescription,
-  cssMistakeNoCorrection,
-  themeCustomization,
-} from "./assets/style.css";

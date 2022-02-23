@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "target": "es5",
-    "module": "es2015",
+    "module": "commonjs",
     "importHelpers": true,
     "lib": ["es2015", "dom", "es2017"],
     "declaration": true,
